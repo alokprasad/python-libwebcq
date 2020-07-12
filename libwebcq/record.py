@@ -141,11 +141,17 @@ class CRPRecord(Record):
         # Customer corporation information.
         'Customer': 'parse_customer_field',
         'VersionBaseOn': 'version_base_on',
-        'Headline': 'headline',
+        'Title': 'title',
+        'Description':'description',
         'id': 'id',
         # Customer owner contact phone number.
         'CustomerPhone': 'customer_phone',
         'CustomEmails': 'parse_custom_emails',
+        'Notes':'notes',
+        'Root_Caused':'rc',
+        'Root_Caused_note':'rcn',
+        'ResolveNote':'rn',
+        'Resolution':'rsn'
     }
 
     def __init__(self):
@@ -160,7 +166,12 @@ class CRPRecord(Record):
         self.id = None
         self.customer_phone = None
         self.custom_emails = []
-        self.headline = None
+        self.title = None
+        self.description = None
+        self.rc = None
+        self.rcn = None
+        self.rn = None 
+        self.rsn = None   
 
     def on_parse_jobj(self, jobj):
         for field in jobj['fields']:
